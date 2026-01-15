@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Signup Form</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 800px;
+        background-color: white;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin-top: 20px;
+    }
+    
+    .header {
+        background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+        color: white;
+        padding: 30px;
+        text-align: center;
+    }
+    
+    .header h2 {
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+    
+    .form-container {
+        padding: 40px;
+    }
+    
+    .form-group {
+        margin-bottom: 25px;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #333;
+        font-size: 16px;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    textarea {
+        width: 100%;
+        padding: 14px 16px;
+        border: 2px solid #e1e5ee;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s;
+        background-color: #f8f9fa;
+    }
+    
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="url"]:focus,
+    textarea:focus {
+        outline: none;
+        border-color: #4b6cb7;
+        background-color: white;
+        box-shadow: 0 0 0 3px rgba(75, 108, 183, 0.1);
+    }
+    
+    textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+    
+    .radio-group {
+        display: flex;
+        gap: 25px;
+        margin-top: 10px;
+    }
+    
+    .radio-option {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+    .radio-option input[type="radio"] {
+        margin-right: 8px;
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+    }
+    
+    .submit-btn {
+        background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+        color: white;
+        border: none;
+        padding: 16px 32px;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+        transition: all 0.3s;
+        letter-spacing: 0.5px;
+        margin-top: 10px;
+    }
+    
+    .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 7px 14px rgba(75, 108, 183, 0.2);
+    }
+    
+    .footer {
+        text-align: center;
+        padding: 20px;
+        color: #666;
+        font-size: 14px;
+        border-top: 1px solid #eee;
+        background-color: #f8f9fa;
+    }
+    
+    .form-note {
+        font-size: 14px;
+        color: #666;
+        margin-top: 5px;
+        font-style: italic;
+    }
+    
+    .required::after {
+        content: " *";
+        color: #e74c3c;
+    }
+    
+    @media (max-width: 600px) {
+        .container {
+            border-radius: 10px;
+        }
+        
+        .form-container {
+            padding: 25px;
+        }
+        
+        .radio-group {
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .header {
+            padding: 20px;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Create Your Account</h2>
+            <p>Join our community by filling out the form below</p>
+        </div>
+        
+        <div class="form-container">
+            <form action="submit.php" method="post">
+                <div class="form-group">
+                    <label class="required">Name:</label>
+                    <input type="text" name="name" required placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Email:</label>
+                    <input type="email" name="email" required placeholder="your.email@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label>Website:</label>
+                    <input type="url" name="website" placeholder="https://example.com">
+                    <div class="form-note">Optional - Include your personal or business website</div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Comment:</label>
+                    <textarea name="comment" rows="4" cols="50" placeholder="Any additional comments or information you'd like to share..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Gender:</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="gender" value="female" required> 
+                            <span>Female</span>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="gender" value="male"> 
+                            <span>Male</span>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="gender" value="other"> 
+                            <span>Other</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Form</button>
+            </form>
+        </div>
+        
+        <div class="footer">
+            <p>Your information is secure and will not be shared with third parties.</p>
+        </div>
+    </div>
+</body>
+</html>
